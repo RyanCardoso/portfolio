@@ -9,6 +9,69 @@ export const Container = styled.section`
     box-shadow: 5px 0px 50px 2px rgba(0,0,0,0.2); 
 `;
 
+export const Profile = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
+
+export const ProfileImg = styled.figure`
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+`;
+
+export const ProfileTxt = styled.div`
+    padding: 16px 0 0;
+    text-align: center;
+
+    h3 {
+        font-size: 1.3rem;
+        margin-bottom: .25rem;
+    }
+
+    p {
+        color: #8a8a8a;
+    }
+`;
+
+export const Git = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+
+    border-top: 1px solid #cdcdcd;
+    border-bottom: 1px solid #cdcdcd;
+    padding: 32px 0;
+    margin: 1.5rem 0;
+
+    a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        user-select: none;
+        cursor: pointer;
+        color: #000;
+
+        h4 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            color: #8a8a8a;
+        }
+    }
+`;
+
 export const Item = styled.div`
     position: relative;
     width: 100%;
