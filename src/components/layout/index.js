@@ -8,6 +8,7 @@ import Sidebar from "../sidebar";
 const Layout = ({children}) => {
     return (
         <S.Container>
+            <S.GlobalStyle />
             <Sidebar />
             <S.Content>
                 {children}
