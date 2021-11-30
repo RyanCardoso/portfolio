@@ -3,8 +3,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import * as S from './styles';
 
+// Componentes
+import Toggle from '../toggle';
+
 const Sidebar = () => {
     const [dataGit, setDataGit] = useState([]);
+    const [openMenu, setOpenMenu] = useState(false);
+
     const profile = [{
         img: {
             id: 1,
@@ -19,7 +24,7 @@ const Sidebar = () => {
         img: {
             id: 1,
             url: 'https://cdn-icons-png.flaticon.com/512/456/456212.png',
-            alt: 'testando'
+            alt: 'icon_profile'
         },
         title: 'About',
         link: '#about'
@@ -27,8 +32,8 @@ const Sidebar = () => {
     {
         img: {
             id: 1,
-            url: 'https://cdn-icons.flaticon.com/png/512/1979/premium/1979375.png?token=exp=1638116989~hmac=2f845aaa9782298b4715b7902dc36c13',
-            alt: 'testando'
+            url: 'https://cdn-icons-png.flaticon.com/512/4692/4692796.png',
+            alt: 'icon_skills'
         },
         title: 'Skills',
         link: '#about'
@@ -37,7 +42,7 @@ const Sidebar = () => {
         img: {
             id: 1,
             url: 'https://cdn-icons-png.flaticon.com/512/2910/2910791.png',
-            alt: 'testando'
+            alt: 'icon_projects'
         },
         title: 'Projects',
         link: '#about'
@@ -49,20 +54,25 @@ const Sidebar = () => {
         getDataGit();
     }, [])
 
-    useEffect(() => {
-        console.log(dataGit)
-    }, [dataGit])
-
     const getDataGit = async () => {
         const response = await axios.get('https://api.github.com/users/ryancardoso');
         const repos = await axios.get('https://api.github.com/users/ryancardoso/repos');
 
         setDataGit([response.data, repos.data]);
-        console.log(dataGit)
     }
 
     return (
         <S.Container>
+            <S.Menu>
+                <Toggle />
+                <img
+                    onClick={() => setOpenMenu(!openMenu)}
+                    src={openMenu ?
+                        "https://cdn-icons-png.flaticon.com/512/59/59660.png" :
+                        "https://cdn-icons.flaticon.com/png/512/3945/premium/3945664.png?token=exp=1638231228~hmac=b9b1cd95f6dd6b227e5f54f98787da51"
+                    }
+                    alt="icon_hamburguer" />
+            </S.Menu>
             <S.Profile>
                 <S.ProfileImg>
                     <img

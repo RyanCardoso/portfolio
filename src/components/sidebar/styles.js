@@ -9,6 +9,19 @@ export const Container = styled.section`
     box-shadow: 5px 0px 50px 2px rgba(0,0,0,0.2); 
 `;
 
+export const Menu = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 32px;
+    margin-bottom: 2.5rem;
+
+    img { 
+        width: 30px; 
+    }
+`;
+
 export const Profile = styled.div`
     width: 100%;
     display: flex;
