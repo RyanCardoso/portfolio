@@ -22,6 +22,15 @@ const Sidebar = () => {
 
     const items = [{
         img: {
+            id: 0,
+            url: 'https://cdn-icons-png.flaticon.com/512/20/20176.png',
+            alt: 'icon_home'
+        },
+        title: 'Home',
+        link: '#home'
+    },
+    {
+        img: {
             id: 1,
             url: 'https://cdn-icons-png.flaticon.com/512/456/456212.png',
             alt: 'icon_profile'
@@ -31,7 +40,7 @@ const Sidebar = () => {
     },
     {
         img: {
-            id: 1,
+            id: 2,
             url: 'https://cdn-icons-png.flaticon.com/512/4692/4692796.png',
             alt: 'icon_skills'
         },
@@ -40,7 +49,7 @@ const Sidebar = () => {
     },
     {
         img: {
-            id: 1,
+            id: 3,
             url: 'https://cdn-icons-png.flaticon.com/512/2910/2910791.png',
             alt: 'icon_projects'
         },
@@ -69,7 +78,7 @@ const Sidebar = () => {
                     onClick={() => setOpenMenu(!openMenu)}
                     src={openMenu ?
                         "https://cdn-icons-png.flaticon.com/512/59/59660.png" :
-                        "https://cdn-icons.flaticon.com/png/512/3945/premium/3945664.png?token=exp=1638231228~hmac=b9b1cd95f6dd6b227e5f54f98787da51"
+                        "https://cdn-icons-png.flaticon.com/512/130/130918.png"
                     }
                     alt="icon_hamburguer" />
             </S.Menu>
