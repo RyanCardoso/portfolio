@@ -14,6 +14,8 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-    width: ${props => props.width};
-    background: purple;
+    width: calc(100vw - 280px);
+    height: 100vh;
+    float: right;
+    background-color: #0d1117;//#010409;
 `;
