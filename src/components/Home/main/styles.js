@@ -19,6 +19,7 @@ export const Title = styled.h1`
     line-height: 0.9em;
     letter-spacing: 2px;
     transform: rotate(-28deg) skew(25deg);
+    text-transform: capitalize;
     text-shadow: ${({ textShadow }) => textShadow};
 
     :before {

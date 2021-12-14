@@ -1,63 +1,48 @@
 // Libs
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import {
+    graphql,
+    Link,
+    useStaticQuery
+} from 'gatsby';
+
+
 import * as S from './styles';
 
 // Componentes
 import Toggle from '../toggle';
 
 const Sidebar = () => {
+    const data = useStaticQuery(graphql`
+    query {
+        allData {
+            sidebars {
+                profiles {
+                    img {
+                        fileName
+                        id
+                        url
+                    }
+                    name
+                    country
+                    state
+                    city
+                }
+                sidebarItems {
+                    img
+                    title
+                }
+            }            
+        }
+      }
+      
+    `)
+
     const [dataGit, setDataGit] = useState([]);
     const [openMenu, setOpenMenu] = useState(false);
 
-    const profile = [{
-        img: {
-            id: 1,
-            url: "https://github.com/RyanCardoso.png",
-            alt: 'img_profile'
-        },
-        name: "Ryan Cardoso",
-        andress: "Brasil / Rio de Janeiro / RJ"
-    }]
-
-    const items = [{
-        img: {
-            id: 0,
-            url: 'https://cdn-icons-png.flaticon.com/512/20/20176.png',
-            alt: 'icon_home'
-        },
-        title: 'Home',
-        link: '#home'
-    },
-    {
-        img: {
-            id: 1,
-            url: 'https://cdn-icons-png.flaticon.com/512/456/456212.png',
-            alt: 'icon_profile'
-        },
-        title: 'About',
-        link: '#about'
-    },
-    {
-        img: {
-            id: 2,
-            url: 'https://cdn-icons-png.flaticon.com/512/4692/4692796.png',
-            alt: 'icon_skills'
-        },
-        title: 'Skills',
-        link: '#about'
-    },
-    {
-        img: {
-            id: 3,
-            url: 'https://cdn-icons-png.flaticon.com/512/2910/2910791.png',
-            alt: 'icon_projects'
-        },
-        title: 'Projects',
-        link: '#about'
-    },
-
-    ]
+    const cmsData = data?.allData?.sidebars?.[0];
 
     useEffect(() => {
         getDataGit();
@@ -85,13 +70,19 @@ const Sidebar = () => {
             <S.Profile>
                 <S.ProfileImg>
                     <img
-                        src={profile[0].img.url}
-                        alt={profile[0].img.alt}
+                        src={cmsData?.profiles?.[0].img?.url}
+                        alt={cmsData?.profiles?.[0].img?.fileName}
                     />
                 </S.ProfileImg>
                 <S.ProfileTxt>
-                    <h3>{profile[0].name}</h3>
-                    <p>{profile[0].andress}</p>
+                    <h3>{cmsData?.profiles?.[0].name}</h3>
+                    <p>
+                        {
+                            cmsData?.profiles?.[0].country + ' / ' +
+                            cmsData?.profiles?.[0].state + ' / ' +
+                            cmsData?.profiles?.[0].city
+                        }
+                    </p>
                 </S.ProfileTxt>
                 <S.Git>
                     <a
@@ -117,16 +108,18 @@ const Sidebar = () => {
                     </a>
                 </S.Git>
             </S.Profile>
-            {items.map((item, index) => (
+            {cmsData?.sidebarItems?.map((item, index) => (
                 <S.Item key={index}>
                     <S.Figure>
                         <img
-                            src={item.img.url}
-                            alt={item.img.alt}
+                            src={item?.img}
+                            alt={'icon_' + item.title}
                         />
                     </S.Figure>
                     <S.Title>
-                        <h4>{item.title}</h4>
+                        <Link to={'/' + ((item.title)?.toLowerCase())}>
+                            {item.title}
+                        </Link>
                     </S.Title>
                 </S.Item>
             ))}

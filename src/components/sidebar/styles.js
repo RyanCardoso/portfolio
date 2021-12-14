@@ -46,6 +46,7 @@ export const ProfileTxt = styled.div`
     text-align: center;
 
     h3 {
+        text-transform: capitalize;
         font-size: 1.3rem;
         margin-bottom: .25rem;
     }
@@ -121,7 +122,9 @@ export const Title = styled.div`
     
     flex: 1;
 
-    h4 {
+    a {
         font-size: 18px;
+        text-decoration: none;
+        color: #222;
     }
 `;

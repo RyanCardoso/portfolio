@@ -2,15 +2,14 @@
 import React, { useState, useEffect } from "react";
 import * as S from "./styles";
 
-const Main = () => {
+const Main = props => {
     const [title, setTitle] = useState(['']);
     const [ shadow, setShadow ] = useState('');
 
-    const titleTxt = "Hello Word, welcome!";
     let titleShadow = '';
 
     useEffect(() => {
-        showText(titleTxt, 150);
+        showText(props?.title, 150);
 
         for (let i = 0; i < 20; i++) {
             titleShadow += (titleShadow? ',' : '')+ -i*1+'px '+ i*1+'px 0 #d9d9d9';
@@ -49,25 +48,3 @@ const Main = () => {
 }
 
 export default Main;
-
-
-// var el = document.querySelector("#text");
-// var text = "JavaScript é muito bom!"
-// var interval = 200;
-// function showtext(el, text, interval) {
-//     var char = text.split("").reverse();
-
-//     var typer = setInterval(function () {
-
-//         if (!char.length) {
-//             return clearInterval(typer)
-//         }
-
-//         var next = char.pop();
-
-//         el.innerHTML += next;
-
-//     }, interval);
-
-// }
-// showtext(el, text, interval);
