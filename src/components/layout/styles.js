@@ -20,7 +20,6 @@ export const Container = styled.div`
 
 export const Content = styled.div`
     width: calc(100vw - 280px);
-    height: 100vh;
     float: right;
     background-color: ${theme.colors.light1};
 `;
