@@ -2,16 +2,16 @@
 import React, { useState } from "react";
 import * as S from "./styles";
 
-const Toggle = () => {
-    const [check, setCheck] = useState(false);
+const Toggle = props => {
+    //const [check, setCheck] = useState(false);
 
     return (
         <S.Container
-            isCheck={check}
+            isCheck={props.isCheck}
         >
             <S.Toggle 
-                isCheck={check}
-                onClick={() => setCheck(!check)}
+                isCheck={props.isCheck}
+                onClick={props.onclick}
             />
         </S.Container>
     )

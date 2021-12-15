@@ -1,6 +1,6 @@
 // Libs
-import React from "react";
-import { useStaticQuery, graphql, Link } from "gatsby";
+import React, { useState } from "react";
+import { useStaticQuery, graphql } from "gatsby";
 
 // Components
 import Layout from "../components/layout";
@@ -19,9 +19,15 @@ const Home = () => {
 
   const cmsData = data?.allData?.homes?.[0];
 
+  const [check, setCheck] = useState(false);
+
   return (
-    <Layout>
-        <Main 
+    <Layout
+      isCheck={check}
+      onclick={() => setCheck(!check)}
+    >
+        <Main
+          isCheck={check}
           title={cmsData.title}
         />
     </Layout>

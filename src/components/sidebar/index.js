@@ -13,7 +13,7 @@ import * as S from './styles';
 // Componentes
 import Toggle from '../toggle';
 
-const Sidebar = () => {
+const Sidebar = props => {
     const data = useStaticQuery(graphql`
     query {
         allData {
@@ -56,9 +56,12 @@ const Sidebar = () => {
     }
 
     return (
-        <S.Container>
+        <S.Container isDark={props.isCheck}>
             <S.Menu>
-                <Toggle />
+                <Toggle 
+                    isCheck={props.isCheck}
+                    onclick={props.onclick}
+                />
                 <img
                     onClick={() => setOpenMenu(!openMenu)}
                     src={openMenu ?

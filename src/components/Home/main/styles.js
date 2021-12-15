@@ -27,7 +27,7 @@ export const Title = styled.h1`
         position: absolute;
         top: 30px;
         left: -30px;
-        color: rgba(255,248,131,0.3);
+        color: rgba(0,0,0,0.3);
         text-shadow: none;
         filter: blur(8px);
         z-index: -1;

@@ -1,11 +1,15 @@
+// Libs
 import styled from "styled-components";
+
+// Components
+import { theme } from "../../global/theme";
 
 export const Container = styled.section`
     position: fixed;
     width: 280px;
     height: 100vh;
     padding: 32px 0;
-    background: #FFFFFF;
+    background: ${theme.colors.light0}; 
     box-shadow: 5px 0px 50px 2px rgba(0,0,0,0.2); 
 `;
 

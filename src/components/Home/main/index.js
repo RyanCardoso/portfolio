@@ -12,7 +12,7 @@ const Main = props => {
         showText(props?.title, 150);
 
         for (let i = 0; i < 20; i++) {
-            titleShadow += (titleShadow? ',' : '')+ -i*1+'px '+ i*1+'px 0 #d9d9d9';
+            titleShadow += (titleShadow? ',' : '')+ -i*1+'px '+ i*1+'px 0 #3F8FD6';
 
             if (i >= 19) {
                 setShadow(titleShadow);

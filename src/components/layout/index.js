@@ -1,17 +1,20 @@
 // Libs
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./styles";
 
 // Components 
 import Sidebar from "../sidebar";
 
-const Layout = ({children}) => {
+const Layout = props => {
     return (
         <S.Container>
-            <S.GlobalStyle />
-            <Sidebar />
-            <S.Content>
-                {children}
+            <S.GlobalStyle isDark={props.isCheck} />
+            <Sidebar
+                isCheck={props.isCheck}
+                onclick={props.onclick}
+            />
+            <S.Content isDark={props.isCheck}>
+                {props.children}
             </S.Content>
         </S.Container>
     );

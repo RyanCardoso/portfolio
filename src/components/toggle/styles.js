@@ -7,15 +7,16 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     border-radius: 30px;
-    box-shadow: inset 0 0 10px 2px #cdcdcd;
-    background: ${ props => props.isCheck ? '#63D600' : '#FFF'};
+    box-shadow: inset 0 0 10px 2px 
+    ${({ isCheck }) => isCheck ? '#3F8FD6' : '#cdcdcd'};
+    background: ${({ isCheck }) => isCheck ? '#3F8FD6' : '#FFF'};
     transition: 1s ease-in-out;
 `;
 
 export const Toggle = styled.div`
     position: absolute;
     top: 50%;
-    left: ${ props => props.isCheck ? 'calc(90% - 18px)' : '10%'};
+    left: ${({ isCheck }) => isCheck ? 'calc(90% - 18px)' : '10%'};
     transform: translateY(-50%);
     transition: .5s ease-in-out;
     width: 18px;
