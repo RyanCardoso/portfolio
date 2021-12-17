@@ -20,6 +20,12 @@ export const Container = styled.div`
 
 export const Content = styled.div`
     width: calc(100vw - 280px);
+    min-height: 100vh;
     float: right;
+    padding-bottom: 5rem;
     background-color: ${theme.colors.light1};
+
+    @media (max-width: 780px) {
+      width: 100%;
+    }
 `;

@@ -32,6 +32,7 @@ const Sidebar = props => {
                 sidebarItems {
                     img
                     title
+                    link
                 }
             }            
         }
@@ -62,13 +63,13 @@ const Sidebar = props => {
                     isCheck={props.isCheck}
                     onclick={props.onclick}
                 />
-                <img
+                {/* <img
                     onClick={() => setOpenMenu(!openMenu)}
                     src={openMenu ?
                         "https://cdn-icons-png.flaticon.com/512/59/59660.png" :
                         "https://cdn-icons-png.flaticon.com/512/130/130918.png"
                     }
-                    alt="icon_hamburguer" />
+                    alt="icon_hamburguer" /> */}
             </S.Menu>
             <S.Profile>
                 <S.ProfileImg>
@@ -120,7 +121,7 @@ const Sidebar = props => {
                         />
                     </S.Figure>
                     <S.Title>
-                        <Link to={'/' + ((item.title)?.toLowerCase())}>
+                        <Link to={item.link}>
                             {item.title}
                         </Link>
                     </S.Title>

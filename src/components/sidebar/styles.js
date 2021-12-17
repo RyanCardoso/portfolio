@@ -11,6 +11,10 @@ export const Container = styled.section`
     padding: 32px 0;
     background: ${theme.colors.light0}; 
     box-shadow: 5px 0px 50px 2px rgba(0,0,0,0.2); 
+
+    @media (max-width: 780px) {
+        display: none;
+    }
 `;
 
 export const Menu = styled.div`
