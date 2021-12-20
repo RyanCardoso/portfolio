@@ -1,29 +1,36 @@
 // Libs
-import React from "react";
+import React, { useState } from "react";
+import { useStaticQuery, graphql } from "gatsby";
 
 // Components
 import Layout from "../components/layout";
-
-// Styles
-import styled, {createGlobalStyle} from "styled-components";
-
-const GloabalStyle = createGlobalStyle`
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-`
-const Container = styled.div`
-  width: 100%;
-`;
+import Main from "../components/Home/main";
 
 const Home = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      allData {
+        homes {
+          title
+        }
+      }
+    }
+  `);
+
+  const cmsData = data?.allData?.homes?.[0];
+
+  const [check, setCheck] = useState(false);
+
   return (
-    <Container>
-      <GloabalStyle />
-      <Layout />
-    </Container>
+    <Layout
+      isCheck={check}
+      onclick={() => setCheck(!check)}
+    >
+        <Main
+          isCheck={check}
+          title={cmsData.title}
+        />
+    </Layout>
   );
 };
 
